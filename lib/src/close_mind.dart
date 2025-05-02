@@ -1,13 +1,8 @@
-library;
-
 import 'dart:convert';
+
+import 'package:close_mind_sdk/src/close_mind_options.dart';
+import 'package:close_mind_sdk/src/exceptions/close_mind_exception.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:close_mind_sdk/src/close_mind_options.dart'; // Ajuste o caminho se necessário
-import 'package:close_mind_sdk/src/exceptions/close_mind_exception.dart'; // Ajuste o caminho se necessário
-
-export 'package:close_mind_sdk/src/close_mind_options.dart'; // Exporte a enum e a classe de opções
-export 'package:close_mind_sdk/src/exceptions/close_mind_exception.dart'; // Exporte a exceção
 
 class CloseMind {
   static CloseMind? _instance;

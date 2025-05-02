@@ -1,5 +1,6 @@
-// example/lib/main.dart
-import 'package:close_mind_sdk/src/close-mind-sdk.dart';
+import 'package:close_mind_sdk/src/close_mind.dart';
+import 'package:close_mind_sdk/src/close_mind_options.dart';
+import 'package:close_mind_sdk/src/exceptions/close_mind_exception.dart';
 
 // Make sure you have added http to the dependencies section
 // of the pubspec.yaml file in YOUR EXAMPLE PROJECT (the one in the 'example' folder):
