@@ -68,7 +68,7 @@ void main() async {
   );
 
   try {
-    await CloseMind.initialize(options: options);
+    await CloseMind.init(options: options);
     print('✅ CloseMind SDK initialized successfully!');
   } on StateError catch (e) {
     print('⚠️ Already initialized: ${e.message}');
@@ -123,10 +123,10 @@ try {
 
 ### 🔍 Métodos
 
-#### `CloseMind.initialize({required CloseMindOptions options})`
+#### `CloseMind.init({required CloseMindOptions options})`
 - Inicializa o SDK. Deve ser chamada apenas uma vez.
 
-#### `CloseMind.get instance`
+#### `CloseMind.instance`
 - Retorna a instância da SDK. Lança `StateError` se `initialize` não foi chamada.
 
 #### `CloseMind.resetInstance()`

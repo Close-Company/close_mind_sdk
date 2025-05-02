@@ -17,7 +17,7 @@ class CloseMind {
 
   CloseMind._internal({required this.apiKey, required this.environment, required this.projectId, required this.baseUrl});
 
-  static Future<void> initialize({required CloseMindOptions options}) async {
+  static Future<void> init({required CloseMindOptions options}) async {
     if (_instance != null) {
       throw StateError('CloseMind SDK já foi inicializado.');
     }

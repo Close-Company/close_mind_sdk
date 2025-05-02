@@ -24,7 +24,7 @@ void main() async {
     // This call configures the SDK. It's typically done in 'main()'
     // or an initial setup function of your app.
     print('Attempting to initialize CloseMind SDK...');
-    await CloseMind.initialize(options: options);
+    await CloseMind.init(options: options);
     print('CloseMind SDK initialized successfully!');
 
     // 3. Now you can get the instance of the SDK from anywhere in your code.
