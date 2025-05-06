@@ -49,7 +49,7 @@ class CloseMind {
     _instance = null;
   }
 
-  Future<Map<String, dynamic>> think({required Map<String, dynamic> context, required List<String> scopes, Map<String, dynamic>? input, String? modelName, String? language}) async {
+  Future<Map<String, dynamic>> think({required String context, required List<String> scopes, Map<String, dynamic>? input, String? modelName, String? language}) async {
     final url = Uri.parse(baseUrl); // Usa a baseUrl da instância
     final headers = {
       'Content-Type': 'application/json',
