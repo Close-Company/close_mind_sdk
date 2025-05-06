@@ -40,7 +40,7 @@ void main() async {
     try {
       final result = await closeMind.think(
         // 'context' is now a Map
-        context: {'text': 'Analyze the sentiment of the phrase: "Adorei o novo filme, foi incrível!"'},
+        context: 'Analyze the sentiment of the phrase: "Adorei o novo filme, foi incrível!"',
         // 'scopes' is now a List of Strings
         scopes: ['sentiment', 'keywords'], // Example scopes
         // Optional parameters:
