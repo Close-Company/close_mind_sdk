@@ -49,7 +49,7 @@ class CloseMind {
     _instance = null;
   }
 
-  Future<Map<String, dynamic>> think({required String context, required List<String> scopes, Map<String, dynamic>? input, String? modelName, String? language}) async {
+  Future<Map<String, dynamic>> think({required Map<String, dynamic> context, required List<String> scopes, Map<String, dynamic>? input, String? modelName, String? language}) async {
     final url = Uri.parse(baseUrl); // Usa a baseUrl da instância
     final headers = {
       'Content-Type': 'application/json',
@@ -63,13 +63,15 @@ class CloseMind {
       if (response.statusCode >= 200 && response.statusCode < 300) {
         return jsonDecode(response.body);
       } else {
-        throw CloseMindException('Falha na requisição da API AI.', statusCode: response.statusCode, body: response.body);
+        return {'return': CloseMindResponses.fail.name};
       }
     } catch (e) {
       if (e is CloseMindException) {
-        rethrow;
+        return {'return': CloseMindResponses.error.name};
       }
-      throw CloseMindException('Erro durante a requisição AI: ${e.toString()}');
+      return {'return': CloseMindResponses.error.name};
     }
   }
 }
+
+enum CloseMindResponses { success, error, fail }
