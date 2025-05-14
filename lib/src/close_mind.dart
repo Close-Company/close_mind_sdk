@@ -49,7 +49,7 @@ class CloseMind {
     _instance = null;
   }
 
-  Future<Map<String, dynamic>> think({required Map<String, dynamic> context, required List<String> scopes, Map<String, dynamic>? input, String? modelName, String? language}) async {
+  Future<CloseMindResponse> think({required String context, required List<String> scopes, Map<String, dynamic>? input, String? modelName, String? language}) async {
     final url = Uri.parse(baseUrl); // Usa a baseUrl da instância
     final headers = {
       'Content-Type': 'application/json',
@@ -63,15 +63,15 @@ class CloseMind {
       if (response.statusCode >= 200 && response.statusCode < 300) {
         return jsonDecode(response.body);
       } else {
-        return {'return': CloseMindResponses.fail.name};
+        return CloseMindResponse.fail;
       }
     } catch (e) {
       if (e is CloseMindException) {
-        return {'return': CloseMindResponses.error.name};
+        return CloseMindResponse.error;
       }
-      return {'return': CloseMindResponses.error.name};
+      return CloseMindResponse.error;
     }
   }
 }
 
-enum CloseMindResponses { success, error, fail }
+enum CloseMindResponse { success, error, fail }
